@@ -1,6 +1,6 @@
 /****************************************************************
 * Author : Mwangi Ngugi
-* Purpose : a simple hello wprld using a function
+* Purpose : a simple sum and average program
 *
 * add two numbers and perform the average examples of scanf()
 *****************************************************************/
