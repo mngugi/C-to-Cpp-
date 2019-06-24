@@ -1,6 +1,6 @@
 /****************************************************************
 * Author : Mwangi Ngugi
-* Purpose : A simple program for Declaring local variable
+* Purpose : A simple program for Declaring Global variable
 *
 *local variables are declared outside a function block;
 * and can only be used by statements that are inside that function
