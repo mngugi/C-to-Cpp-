@@ -88,6 +88,8 @@ int main() {
   return 0;
 }
 ```
+
+---
 ### sumaverage.c
 **Code:**
 ```C
@@ -141,6 +143,8 @@ Finally, the printf function is used to print the sum and average. The %d format
 The output of the program will be the sum and average of the two numbers entered by the user. For example, if the user enters 3 and 5, the output will be:
 
 `Sum is 8 and Average 4.000000 is :`
+
+
 
 ---
 ### 2.headers1.c
