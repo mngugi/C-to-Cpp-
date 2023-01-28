@@ -1549,3 +1549,155 @@ Float b : 1400.045000
 Character string  : I love this game
 ```
 Note that the value of the b field may not be printed exactly as it was stored, due to the way floating-point numbers are represented in memory.
+
+---
+
+## C Graphical User Interface
+### c-gui.c
+**Code:**
+
+```C
+/** This Coding Exercise shows how to make GUI applications using GTK Toolkit  **/
+/** GTK is based on Object Orientation  **/
+/** GTK is event driven     **/
+/** GTK reference page https://www.gtk.org/docs/getting-started/  **/
+
+#include <gtk/gtk.h>
+int main (int argc, char *argv[])
+{
+gtk_init (&argc, &argv);
+GtkWidget *win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+gtk_widget_show (win);
+gtk_main ();
+return 0;
+}
+
+```
+
+This C code uses the GTK (GIMP Toolkit) library to create a GUI (graphical user interface) application. GTK is an open-source, cross-platform toolkit for creating graphical user interfaces. It is based on object-oriented programming principles and is event-driven, meaning that it responds to user interactions such as button clicks and key presses.
+
+In this code, the gtk_init() function is used to initialize the GTK library and parse command line options. A new window is created using the gtk_window_new() function, which takes a parameter specifying the type of window to create (in this case, GTK_WINDOW_TOPLEVEL, which is a top-level window with a title bar and border). The gtk_widget_show() function is used to display the window on the screen. The gtk_main() function is an infinite loop that waits for events, such as user interactions, to occur and dispatches them to the appropriate event handlers. The code will run this loop until the application is closed by the user.
+
+---
+### lesson1b.cpp
+**Code:**
+
+
+```c++
+//
+//  lesson1b.cpp
+//  C++Teaser
+//
+//  Created by peter  ngugi on 29/05/14.
+//  Copyright (c) 2014 no. All rights reserved.
+//
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int thisIsAnumber;
+    std::cout << "Please Enter the a number:";
+    cin>> thisIsAnumber;
+    cin.ignore();
+    
+    cout<<"You entered: " << thisIsAnumber <<"\n";
+    cin.get();
+
+    return 0;
+
+}
+
+```
+This is a simple C++ program that prompts the user to enter a number, reads the number from the user input, and then prints the number to the console. The program uses the "cin" and "cout" commands to read input and print output, respectively. The program also uses the "ignore" and "get" functions to clear the input buffer and wait for the user to press enter before ending the program.
+
+
+---
+
+### lesson2.cpp
+**Code:**
+
+```c++
+//
+//  lesson2.cpp
+//  C++Teaser
+//
+//  Created by peter  ngugi on 29/05/14.
+//  Copyright (c) 2014 no. All rights reserved.
+//
+
+#include <iostream>
+using namespace std;
+int main()
+{
+ int age;
+ cout << "Please Enter your age:";
+ cin >> age;
+ 
+    cin.ignore();
+    if (age < 100) {
+        cout <<" You are pretty young!\n";
+        
+    } else if(age == 100) {
+        cout << "You are old\n";
+    
+    }
+
+    else {
+         cout << "You are really old";
+    
+    }
+
+    cin.get();
+
+}
+
+
+```
+
+This is a simple C++ program that prompts the user to enter their age, reads the age from the user input, and then uses an if-else statement to print a message to the console based on the value of the age.
+
+The program uses the "cin" command to read the age from the user input, and the "cout" command to print messages to the console. The program also uses the "ignore" function to clear the input buffer.
+
+The if-else statement checks the value of the age variable, if the age is less than 100 it prints "You are pretty young!", if the age is equal to 100 it prints "You are old", otherwise it prints "You are really old".
+
+Finally, the program uses the "get" function to wait for the user to press enter before ending the program.
+
+---
+
+
+### lesson3.cpp
+**Code:**
+```c++
+
+//
+//  lesson3.cpp
+//  C++Teaser
+//
+//  Created by peter  ngugi on 29/05/14.
+//  Copyright (c) 2014 no. All rights reserved.
+//
+
+#include <iostream>
+using namespace std;
+
+int main()
+
+{
+    int x;
+    x=0;
+    do {
+        std::cout<< "Kenya ";
+    } while (x !=0);
+    
+    cin.get();
+}
+```
+This is a simple C++ program that uses a "do-while" loop to repeatedly print the string "Kenya " to the console.
+
+The program initializes a variable "x" to the value 0. The do-while loop will execute the code block inside the loop as long as the condition in the while statement is true. In this case, the condition is "x !=0", which will always be true because x is always equal to 0.
+
+This means that the code block inside the do-while loop will execute an infinite amount of times and will keep printing "Kenya " to the console.
+
+The program also uses the "get" function to wait for the user to press enter before ending the program.
+It is an infinite loop and it will run until the user stops it by closing the console window or stopping the execution.
