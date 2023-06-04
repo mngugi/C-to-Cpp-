@@ -1701,3 +1701,74 @@ This means that the code block inside the do-while loop will execute an infinite
 
 The program also uses the "get" function to wait for the user to press enter before ending the program.
 It is an infinite loop and it will run until the user stops it by closing the console window or stopping the execution.
+
+---
+
+### Xoroperator.cpp
+**Code**
+```cpp
+#include <iostream>
+
+int xorOperation(int a, int b);
+
+int main()
+{
+    std::cout << xorOperation(1, 0) << std::endl;
+    std::cout << xorOperation(1, 1) << std::endl;
+    std::cout << xorOperation(0, 1) << std::endl;
+    std::cout << xorOperation(0, 0) << std::endl;
+
+    return 0;
+}
+
+int xorOperation(int a, int b)
+{
+    return (a || b) && !(a && b);
+}
+
+
+```
+The code implements the XOR logic function using C++ and the iostream library. It should compile and run successfully. The XOR function takes two integer arguments a and b and returns the result of the XOR operation.
+
+
+---
+
+### Qunion.cpp
+
+**Code:**
+
+```cpp
+
+The code is a simple GTK+ application that creates a top-level window and displays it. The following is a breakdown of what each line of code does:
+
+`#include <gtk/gtk.h>`: This line includes the GTK+ header file, which contains all of the declarations for the GTK+ functions and widgets.
+`int main (int argc, char *argv[])` : This line defines the main() function, which is the entry point for all GTK+ applications.
+`gtk_init (&argc, &argv); `: This line initializes the GTK+ library and parses the command-line arguments.
+`GtkWidget *win = gtk_window_new (GTK_WINDOW_TOPLEVEL);` : This line creates a new top-level window widget and stores it in the win variable.
+`gtk_widget_show (win);` : This line displays the win window.
+`gtk_main ();` : This line starts the GTK+ main loop, which will continue to run until the user closes the window.
+`return 0;` : This line returns 0 from the main() function, which indicates that the application exited successfully.
+When you run this code, it will create a new window with no title bar or border. 
+You can resize and move the window, but you cannot close it. To close the window, you can click the window's close button or press the Ctrl+W keyboard shortcut
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
