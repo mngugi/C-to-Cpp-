@@ -3,9 +3,33 @@
 Installing GTK for C - GUI
 ```c
 $ sudo dnf install gtk3-devel gstreamer1-devel clutter-devel webkit2gtk3-devel libgda-devel gobject-introspection-devel
+
 $ sudo dnf install devhelp gtk3-devel-docs clutter-doc
 
+compile a program with gcc using:
+
+$ gcc hello.c -o hello `pkg-config --cflags --libs gtk+-3.0`
+
+
 ```
+
+Verify GTK Installation: Double-check that the GTK development package is installed correctly on your system. You can use the package manager specific to your operating system to confirm the installation. For example, on Ubuntu, you can run the following command:
+
+bash
+Copy code
+dpkg -l libgtk-3-dev
+This command will check if the libgtk-3-dev package is installed. If it's not installed, you can try reinstalling it.
+
+Check the GTK Include Path: Ensure that the GTK header files are present in the include path. You can locate the GTK header files on your system using the locate command. For example:
+
+`locate gtk.h`
+This command will list the locations where the gtk.h header file is found. Note the directory path, and when compiling the code, add the -I flag followed by that path. For example:
+
+
+`**gcc -o program program.c -I/path/to/gtk/headers `pkg-config --cflags --libs gtk+-3.0`**`
+
+Update Your System: Ensure that your system is up to date with the latest software packages and updates. This step can help in case there were any missing dependencies or compatibility issues.
+
 
 ---
 
