@@ -1768,7 +1768,7 @@ The code implements the XOR logic function using C++ and the iostream library. I
 
 ---
 
-### Qunion.cpp
+### gtkGui.cpp
 
 **Code:**
 
@@ -1788,8 +1788,72 @@ You can resize and move the window, but you cannot close it. To close the window
 
 ```
 
+### gtklabels.c
+** Code **
+```C
+#include <stdlib.h>
+#include <stdio.h>
+#include <gtk/gtk.h>
+
+void end_program(GtkWidget *wid, gpointer ptr) {
+    gtk_main_quit();
+}
+
+int main(int argc, char *argv[]) {
+    gtk_init(&argc, &argv);  // Initialize the GTK library
+
+    GtkWidget *win = gtk_window_new(GTK_WINDOW_TOPLEVEL);  // Create a new top-level window
+    GtkWidget *btn = gtk_button_new_with_label("Close window");  // Create a new button with a label
+    g_signal_connect(btn, "clicked", G_CALLBACK(end_program), NULL);
+
+    gtk_container_add(GTK_CONTAINER(win), btn);  // Add the button to the window container
+    gtk_widget_show_all(win);  // Show all the widgets in the window
+    GtkWidget *lbl = gtk_label_new("label");
+    gtk_container_add(GTK_CONTAINER(win), lbl);
+
+    gtk_main();  // Start the GTK main loop for event handling
+
+    return 0;
+}
 
 
+```
+
+a basic GTK application written in C. It creates a simple window with a button and a label. When the button is clicked, the application exits.
+
+the code step by step:
+
+The necessary header files are included: stdlib.h, stdio.h, and gtk/gtk.h. These headers provide the required functions and definitions for the code.
+
+The end_program function is defined. It serves as the callback function for the button's "clicked" signal. When the button is clicked, this function is called, and it calls gtk_main_quit() to exit the GTK main loop and terminate the program.
+
+The main function is defined, which is the entry point of the program.
+
+gtk_init(&argc, &argv) initializes the GTK library, passing the command line arguments to it.
+
+gtk_window_new(GTK_WINDOW_TOPLEVEL) creates a new top-level window.
+
+gtk_button_new_with_label("Close window") creates a new button with the label "Close window".
+
+g_signal_connect(btn, "clicked", G_CALLBACK(end_program), NULL) connects the "clicked" signal of the button to the end_program callback function. It means that when the button is clicked, the end_program function will be called.
+
+gtk_container_add(GTK_CONTAINER(win), btn) adds the button to the window container.
+
+gtk_widget_show_all(win) shows all the widgets in the window. This ensures that the window and its contents are visible.
+
+gtk_label_new("label") creates a new label widget with the text "label".
+
+gtk_container_add(GTK_CONTAINER(win), lbl) adds the label to the window container.
+
+gtk_main() starts the GTK main loop, which handles events and signals.
+
+Finally, the function returns 0, indicating successful program execution.
+
+To compile and run the code, you need to have the GTK development libraries installed on your system and use a C compiler such as GCC with the appropriate flags for linking against GTK. For example, you can compile it using the following command:
+
+
+`**gcc `pkg-config --cflags gtk+-3.0` -o my_program my_program.c `pkg-config --libs gtk+-3.0`**`
+Replace my_program with the desired output filename, and my_program.c with the actual filename containing the code. After compilation, you can run the program using ./my_program.
 
 
 
