@@ -1856,6 +1856,239 @@ To compile and run the code, you need to have the GTK development libraries inst
 Replace my_program with the desired output filename, and my_program.c with the actual filename containing the code. After compilation, you can run the program using ./my_program.
 
 
+---
+
+### gtkBox2.c
+**Code:**
+
+```C
+
+#include <gtk/gtk.h>
+
+int count = 0;
+void end_program (GtkWidget *wid, gpointer ptr)
+
+
+{
+
+gtk_main_quit ();
+}
+
+void count_button (GtkWidget *wid, gpointer ptr){
+char buffer[30];
+count++;
+
+sprintf(buffer, "Button pressed %d times", count);
+gtk_label_set_text(GTK_LABEL (ptr), buffer);
+
+}
+void main( int argc, char *argv[])
+{
+gtk_init (&argc, &argv);
+GtkWidget *win = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+GtkWidget *btn = gtk_button_new_with_label ("Close window");
+g_signal_connect (btn, "clicked", G_CALLBACK (end_program),NULL);
+g_signal_connect (win, "delete_event", G_CALLBACK (end_program),NULL);
+GtkWidget *lbl = gtk_label_new ("Label");
+GtkWidget *btn2 = gtk_button_new_with_label ("Count button");
+g_signal_connect (btn2, "clicked", G_CALLBACK (count_button), lbl);
+GtkWidget *box = gtk_box_new (FALSE, 5);
+gtk_box_pack_start (GTK_BOX (box), btn2, TRUE, TRUE, 0);
+gtk_box_pack_start (GTK_BOX (box), lbl, TRUE, TRUE, 0);
+gtk_box_pack_start (GTK_BOX (box), btn, TRUE, TRUE, 0);
+gtk_container_add (GTK_CONTAINER (win), box);
+gtk_widget_show_all (win);
+gtk_main ();
+}
+
+```
+
+
+Include the necessary GTK header file:
+
+
+`#include <gtk/gtk.h>`
+Declare a global variable count and initialize it to 0:
+
+
+`int count = 0;`
+Define a callback function end_program that will be called when the window or the "Close window" button is clicked:
+
+
+`void end_program(GtkWidget *wid, gpointer ptr)`
+`{`
+    `gtk_main_quit();`
+`}`
+This function calls gtk_main_quit() to exit the GTK main loop, effectively closing the window and terminating the program.
+
+Define another callback function count_button that will be called when the "Count button" is clicked:
+
+
+`void count_button(GtkWidget *wid, gpointer ptr)`
+`{`
+    `char buffer[30];`
+    `count++;`
+    `sprintf(buffer, "Button pressed %d times", count);`
+    `gtk_label_set_text(GTK_LABEL(ptr), buffer);`
+`}`
+This function increments the count variable, formats a string using sprintf, and updates the text of the label (ptr) with the new count value.
+
+Define the main function, which is the entry point of the program:
+
+```c
+`int main(int argc, char *argv[])`
+`{`
+    `gtk_init(&argc, &argv);`
+
+    `// Create the main window`
+    `GtkWidget *win = gtk_window_new(GTK_WINDOW_TOPLEVEL);`
+
+    `// Create the "Close window" button`
+    `GtkWidget *btn = gtk_button_new_with_label("Close window");`
+    `g_signal_connect(btn, "clicked", G_CALLBACK(end_program), NULL);`
+
+    `// Connect the "delete_event" signal to the end_program function`
+    `g_signal_connect(win, "delete_event", G_CALLBACK(end_program), NULL);`
+
+    `// Create the label`
+    `GtkWidget *lbl = gtk_label_new("Label");`
+
+    `// Create the "Count button"`
+    `GtkWidget *btn2 = gtk_button_new_with_label("Count button");`
+    `g_signal_connect(btn2, "clicked", G_CALLBACK(count_button), lbl);`
+
+    `// Create a vertical box layout`
+    `GtkWidget *box = gtk_box_new(FALSE, 5);`
+    `gtk_box_pack_start(GTK_BOX(box), btn2, TRUE, TRUE, 0);`
+    `gtk_box_pack_start(GTK_BOX(box), lbl, TRUE, TRUE, 0);`
+    `gtk_box_pack_start(GTK_BOX(box), btn, TRUE, TRUE, 0);`
+
+    `// Add the box layout to the main window`
+    `gtk_container_add(GTK_CONTAINER(win), box);`
+
+    `// Show all the widgets`
+    `gtk_widget_show_all(win);`
+
+    `// Start the GTK main loop`
+    `gtk_main();`
+
+    `return 0;`
+`}`
+
+```
+
+In the main function, the GTK library is initialized using gtk_init(&argc, &argv). Then, the main window, buttons, label, and box layout are created using the GTK widget functions. Signal connections are established to connect the button clicks to the respective callback functions. Finally, the widgets are added to the main window, shown with gtk_widget_show_all, and the GTK main loop is started with gtk_main().
+
+When you run this code, a window will appear with a label, a "Count button", and a "Close window" button. Clicking the "Count button" will increment the count and update the label with the new count value. Clicking the "Close window" button or closing the window will quit the program.
+
+---
+
+### gtkBoxes.c
+**Code:**
+
+```C
+#include <stdlib.h>
+#include <stdio.h>
+#include <gtk/gtk.h>
+
+void end_program(GtkWidget *wid, gpointer ptr) {
+    gtk_main_quit();
+}
+
+int main(int argc, char *argv[]) {
+    gtk_init(&argc, &argv);  // Initialize the GTK library
+
+    GtkWidget *win = gtk_window_new(GTK_WINDOW_TOPLEVEL);  // Create a new top-level window
+    GtkWidget *btn = gtk_button_new_with_label("Exit");  // Create a new button with a label
+    g_signal_connect(btn, "clicked", G_CALLBACK(end_program), NULL);
+
+    gtk_container_add(GTK_CONTAINER(win), btn);  // Add the button to the window container
+
+    GtkWidget *lbl = gtk_label_new("label");
+
+    GtkWidget *box = gtk_box_new(FALSE, 5);
+    gtk_box_pack_start (GTK_BOX (box), lbl, TRUE, TRUE, 0 );
+    gtk_box_pack_start (GTK_BOX (box), btn, TRUE, TRUE, 0 );
+    gtk_container_add(GTK_CONTAINER(win), box);
+    gtk_container_add(GTK_CONTAINER(win), lbl);
+    gtk_widget_show_all(win);  // Show all the widgets in the window
+    gtk_main();  // Start the GTK main loop for event handling
+
+    return 0;
+}
+
+```
+
+C code creates a simple window with a button and a label. When the button is clicked, the application will exit.
+
+Here's a breakdown of the code:
+
+```
+#include <stdlib.h>
+#include <stdio.h>
+#include <gtk/gtk.h>
+
+```
+
+These are the header files being included. stdlib.h provides functions like exit(), stdio.h provides input/output functions, and gtk/gtk.h is the main GTK header file.
+
+```
+void end_program(GtkWidget *wid, gpointer ptr) {
+    gtk_main_quit();
+}
+```
+This function is the callback function for the button's "clicked" signal. When the button is clicked, it calls gtk_main_quit() to exit the GTK main loop.
+
+```
+int main(int argc, char *argv[]) {
+    gtk_init(&argc, &argv);  // Initialize the GTK library
+```
+The gtk_init() function initializes the GTK library.
+
+
+   ` GtkWidget *win = gtk_window_new(GTK_WINDOW_TOPLEVEL);  // Create a new top-level window`
+This creates a new top-level window using gtk_window_new().
+
+```
+    GtkWidget *btn = gtk_button_new_with_label("Exit");  // Create a new button with a label
+    g_signal_connect(btn, "clicked", G_CALLBACK(end_program), NULL);
+```
+This creates a button widget using gtk_button_new_with_label() and connects the "clicked" signal of the button to the end_program callback `function using g_signal_connect().`
+
+
+    `gtk_container_add(GTK_CONTAINER(win), btn);  // Add the button to the window container`
+The button widget is added to the window container using gtk_container_add().
+
+
+    `GtkWidget *lbl = gtk_label_new("label");`
+This creates a label widget using gtk_label_new().
+
+```c
+
+    GtkWidget *box = gtk_box_new(FALSE, 5);
+    gtk_box_pack_start (GTK_BOX (box), lbl, TRUE, TRUE, 0 );
+    gtk_box_pack_start (GTK_BOX (box), btn, TRUE, TRUE, 0 );
+    gtk_container_add(GTK_CONTAINER(win), box);
+    gtk_container_add(GTK_CONTAINER(win), lbl);
+```
+This creates a box container using gtk_box_new() and packs the label and button widgets into the box using gtk_box_pack_start(). The box container is added to the window using gtk_container_add(). Additionally, the label widget is also added directly to the window.
+
+```c
+    gtk_widget_show_all(win);  // Show all the widgets in the window
+    gtk_main();  // Start the GTK main loop for event handling
+```
+The gtk_widget_show_all() function shows all the widgets in the window. Then, gtk_main() starts the GTK main loop, which handles events such as button clicks.
+
+
+    `return 0;`
+`}`
+Finally, the program returns 0 to indicate successful execution.
+
+
+---
+
+
+
 
 
 
