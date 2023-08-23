@@ -1,6 +1,21 @@
 ## Welcome to the C-Programing-Recap wiki!
+
 ---
-Installing GTK for C - GUI
+
+
+---
+
+
+### To Compile OpenML
+Remember that to compile and run this code, you'll need to have OpenMP support enabled in your compiler. For example, if you're using the GCC compiler, you can compile the code using the following command:
+
+```C
+gcc -o hello_openmp hello_openmp.c -fopenmp
+
+```
+
+
+**Installing GTK for C - GUI**
 ```c
 $ sudo dnf install gtk3-devel gstreamer1-devel clutter-devel webkit2gtk3-devel libgda-devel gobject-introspection-devel
 
