@@ -21,8 +21,11 @@ $ sudo dnf install gtk3-devel gstreamer1-devel clutter-devel webkit2gtk3-devel l
 
 $ sudo dnf install devhelp gtk3-devel-docs clutter-doc
 
-compile a program with gcc using:
+```
 
+**Compile a program with gcc using:**
+
+```c
 $ gcc hello.c -o hello `pkg-config --cflags --libs gtk+-3.0`
 
 
