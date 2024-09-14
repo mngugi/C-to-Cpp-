@@ -1,7 +1,7 @@
 ## Welcome to the C-Programing-Recap wiki!
 
 ---
-[![C/C++ CI](https://github.com/mngugi/C-to-Cpp-/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/mngugi/C-to-Cpp-/actions/workflows/c-cpp.yml)
+[![C/C++ CI](https://github.com/mngugi/C-to-Cpp-/c-cpp.yml/badge.svg)](https://github.com/mngugi/C-to-Cpp-/actions/workflows/c-cpp.yml)
 
 ---
 
