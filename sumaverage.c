@@ -1,39 +1,39 @@
 /****************************************************************
 * Author : Mwangi Ngugi
-* Purpose : a simple sum and average program
+* Purpose : A simple program to calculate the sum and average of two numbers.
 *
-* add two numbers and perform the average examples of scanf()
+* This program prompts the user to input two integers, adds them together,
+* and calculates their average. It demonstrates the use of scanf() for
+* reading input from the user and printf() for outputting results.
 *****************************************************************/
-#include<stdio.h>
+#include<stdio.h>  // Required for input/output functions like printf() and scanf()
+#include<stdlib.h> // Required for system-related functions (though not essential here)
 
 int main(void)
-
 {
-  int first_number , second_number , sum;
-  float average;
+    int first_number, second_number, sum;  // Declaration of integer variables
+    float average;  // Declaration of a float variable to store the average
 
-  // enter the values for first and second number
+    // Prompt the user to enter the first number
+    printf("Enter the first number: ");
+    scanf("%d", &first_number);  // Read the first number from the user input
 
-  printf("Enter the first number:");
-   scanf("%d", &first_number);
+    // Prompt the user to enter the second number
+    printf("Enter the second number: ");
+    scanf("%d", &second_number);  // Read the second number from the user input
 
-  printf("Enter the second number:");
-   scanf("%d", &second_number);
+    // Add the two numbers and store the result in 'sum'
+    sum = first_number + second_number;
 
-  // add the sum
+    // Calculate the average by dividing the sum by 2.0 (ensures floating-point division)
+    average = sum / 2.0;
 
-  sum = first_number + second_number ;
+    // Display the sum and average to the user
+    printf("Sum is %d and Average is %f\n", sum, average);
 
-  // calculate the average
+    // Using getch() is generally not recommended in modern C programming
+    // as it's not part of the standard library. For example:
+    // getch(); // If required for your specific environment, include <conio.h>
 
-  average = sum/2.0 ;
-
-  printf("Sum is %d and Average %f is :", sum , average);
-  getch();
-
-  return 0;
-
-
-
+    return 0;  // Exit the program successfully
 }
-

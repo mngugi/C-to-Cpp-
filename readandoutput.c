@@ -6,7 +6,7 @@
 *
 *****************************************************************/
 #include<stdio.h>  // standard in put out put header function , which contains string package
-#include<conio.h>  // console character input function
+//#include<conio.h>  // console character input function
 
 int main()
 {
