@@ -8,6 +8,7 @@ int k, n ;
          // controls the number of +
             printf("+");
             }
+            printf("\n");
 
 
     }
