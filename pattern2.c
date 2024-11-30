@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main (){
+int k, n ;
+
+    for (k = 6 ; k <= 1; k--) { // controls the number of rows 6 to 1
+        for (n = 1; n <= 1; n++){
+         // controls the number of +
+            printf("+");
+            }
+
+
+    }
+        return 0 ;
+ }
