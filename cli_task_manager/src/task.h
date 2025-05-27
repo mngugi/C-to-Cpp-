@@ -16,6 +16,6 @@ void add_task(const char *desc);
 void list_tasks();
 void delete_task(int id);
 void mark_task_done(int id);
-
+void search_tasks(const char *keyword)
 #endif
 
