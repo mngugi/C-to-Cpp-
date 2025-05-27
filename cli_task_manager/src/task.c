@@ -83,3 +83,30 @@ void mark_task_done(int id) {
     printf("☑ Task %d marked as done.\n", id);
 }
 
+void search_tasks(const char *keyword) {
+    FILE *file = fopen(TASK_FILE, "r");
+    if (!file) {
+        printf("No tasks found.\n");
+        return;
+    }
+
+    Task task;
+    char line[512];
+    int found = 0;
+
+    printf("🔍 Searching for tasks containing: \"%s\"\n", keyword);
+
+    while (fgets(line, sizeof(line), file)) {
+        sscanf(line, "%d|%[^|]|%d", &task.id, task.description, &task.done);
+        if (strstr(task.description, keyword)) {
+            printf("ID: %d | [%c] %s\n", task.id, task.done ? 'x' : ' ', task.description);
+            found = 1;
+        }
+    }
+
+    if (!found) {
+        printf("No matching tasks found.\n");
+    }
+
+    fclose(file);
+}

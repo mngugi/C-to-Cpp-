@@ -14,6 +14,7 @@ int main() {
     while (1) {
         printf("\n=== CLI Task Manager ===\n");
         printf("1. Add task\n2. List tasks\n3. Delete task\n4. Mark task as done\n5. Exit\n> ");
+
         scanf("%d", &choice);
         getchar(); // clear newline
 
@@ -38,7 +39,14 @@ int main() {
                 mark_task_done(id);
                 break;
             case 5:
-                exit(0);
+    		printf("Enter keyword to search: ");
+    		fgets(desc, sizeof(desc), stdin);
+    		desc[strcspn(desc, "\n")] = 0; // remove newline
+    		search_tasks(desc);
+    		break;
+            case 6:
+    		exit(0);
+
             default:
                 printf("Invalid choice.\n");
         }
