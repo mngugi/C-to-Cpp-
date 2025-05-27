@@ -1,11 +1,11 @@
-CC=gcc
-CFLAGS=-Wall -g
-OBJS=src/main.o src/task.o
+CC = gcc
+CFLAGS = -Wall -g
+OBJS = src/main.o src/task.o
 
 task_manager: $(OBJS)
 	$(CC) $(CFLAGS) -o task_manager $(OBJS)
 
-src/%.o: src/%.c
+src/%.o: src/%.c src/%.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

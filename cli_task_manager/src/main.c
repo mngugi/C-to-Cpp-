@@ -1,6 +1,3 @@
-// main menu logic
-
-// main.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,7 +10,12 @@ int main() {
 
     while (1) {
         printf("\n=== CLI Task Manager ===\n");
-        printf("1. Add task\n2. List tasks\n3. Delete task\n4. Mark task as done\n5. Exit\n> ");
+        printf("1. Add task\n");
+        printf("2. List tasks\n");
+        printf("3. Delete task\n");
+        printf("4. Mark task as done\n");
+        printf("5. Search tasks\n");
+        printf("6. Exit\n> ");
 
         scanf("%d", &choice);
         getchar(); // clear newline
@@ -31,26 +33,27 @@ int main() {
             case 3:
                 printf("Enter task ID to delete: ");
                 scanf("%d", &id);
+                getchar();
                 delete_task(id);
                 break;
             case 4:
                 printf("Enter task ID to mark as done: ");
                 scanf("%d", &id);
+                getchar();
                 mark_task_done(id);
                 break;
             case 5:
-    		printf("Enter keyword to search: ");
-    		fgets(desc, sizeof(desc), stdin);
-    		desc[strcspn(desc, "\n")] = 0; // remove newline
-    		search_tasks(desc);
-    		break;
+                printf("Enter keyword to search: ");
+                fgets(desc, sizeof(desc), stdin);
+                desc[strcspn(desc, "\n")] = 0;
+                search_tasks(desc);
+                break;
             case 6:
-    		exit(0);
-
+                exit(0);
             default:
                 printf("Invalid choice.\n");
         }
     }
+
     return 0;
 }
-
