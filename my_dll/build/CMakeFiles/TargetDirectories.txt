@@ -1,0 +1,3 @@
+/home/nova86/C-to-Cpp-/my_dll/build/CMakeFiles/mylib.dir
+/home/nova86/C-to-Cpp-/my_dll/build/CMakeFiles/edit_cache.dir
+/home/nova86/C-to-Cpp-/my_dll/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -Wl,--dependency-file=CMakeFiles/mylib.dir/link.d -shared -Wl,-soname,libmylib.so -o libmylib.so CMakeFiles/mylib.dir/my_lib.c.o
